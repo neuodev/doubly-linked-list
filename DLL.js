@@ -21,7 +21,7 @@ class DoulyLinkedList {
       this.tail.next = node;
       this.tail = node;
     }
-    this.lengt++;
+     this.lengt++;
     return node;
   }
 }
