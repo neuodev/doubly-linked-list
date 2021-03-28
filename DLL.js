@@ -34,10 +34,12 @@ class DoulyLinkedList {
     } else {
       node = this.tail;
       this.tail = this.tail.prev;
+      this.tail.next.prev = null;
       this.tail.next = null;
     }
 
     this.length--;
+    console.log(node);
     return node;
   }
 }
@@ -49,4 +51,7 @@ DLL.push(2);
 DLL.push(3);
 DLL.pop();
 DLL.pop();
-console.log(DLL);
+DLL.pop();
+DLL.pop();
+DLL.pop();
+// console.log(DLL);
