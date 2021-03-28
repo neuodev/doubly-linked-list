@@ -140,6 +140,8 @@ class DoublyLinkedList {
     }
     prev.next = current.next;
     current.next.prev = current.prev;
+    current.next = null;
+    current.prev = null;
   }
 }
 
