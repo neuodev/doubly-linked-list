@@ -10,7 +10,7 @@ class DoulyLinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
-    this.lengt = 0;
+    this.length = 0;
   }
   push(val) {
     const node = new Node(val);
@@ -21,7 +21,23 @@ class DoulyLinkedList {
       this.tail.next = node;
       this.tail = node;
     }
-     this.lengt++;
+    this.length++;
+    return node;
+  }
+  pop() {
+    let node;
+    if (this.head === null || this.tail === null) {
+      return;
+    } else if (this.length === 1) {
+      node = this.head;
+      this.head = this.tail = null;
+    } else {
+      node = this.tail;
+      this.tail = this.tail.prev;
+      this.tail.next = null;
+    }
+
+    this.length--;
     return node;
   }
 }
@@ -31,4 +47,6 @@ DLL.push(0);
 DLL.push(1);
 DLL.push(2);
 DLL.push(3);
+DLL.pop();
+DLL.pop();
 console.log(DLL);
