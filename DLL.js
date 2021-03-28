@@ -42,6 +42,22 @@ class DoulyLinkedList {
     console.log(node);
     return node;
   }
+
+  shift() {
+    let node = this.head;
+    if (!this.head) return;
+    if (this.length === 1) {
+      this.head = this.tail = null;
+    } else {
+      this.head = node.next;
+      this.head.prev = null;
+      node.next = null;
+    }
+
+    this.length--;
+    console.log(node);
+    return node;
+  }
 }
 
 const DLL = new DoulyLinkedList();
@@ -49,9 +65,9 @@ DLL.push(0);
 DLL.push(1);
 DLL.push(2);
 DLL.push(3);
-DLL.pop();
-DLL.pop();
-DLL.pop();
-DLL.pop();
-DLL.pop();
+DLL.shift();
+DLL.shift();
+DLL.shift();
+DLL.shift();
+
 // console.log(DLL);
