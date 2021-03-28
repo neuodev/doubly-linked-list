@@ -6,7 +6,7 @@ class Node {
   }
 }
 
-class DoulyLinkedList {
+class DoublyLinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -99,10 +99,10 @@ class DoulyLinkedList {
   }
 }
 
-const DLL = new DoulyLinkedList();
+const DLL = new DoublyLinkedList();
 DLL.push('Jone');
 DLL.push('Doe');
 DLL.push('Jane');
 DLL.push('Jake');
 DLL.get(-2);
-// console.log(DLL);
+console.log(DLL);
