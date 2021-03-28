@@ -71,6 +71,32 @@ class DoulyLinkedList {
     this.length++;
     return node;
   }
+
+  get(index) {
+    if (index >= this.length || index < 0) return false;
+    const mid = Math.floor(this.length / 2);
+    let counter;
+    let currentNode;
+    if (index <= mid) {
+      counter = 0;
+      currentNode = this.head;
+      while (counter < index) {
+        currentNode = currentNode.next;
+        counter++;
+      }
+    } else {
+      counter = this.length - 1;
+      currentNode = this.tail;
+      while (counter > index) {
+        currentNode = currentNode.prev;
+        counter--;
+      }
+    }
+    currentNode.next = null;
+    currentNode.prev = null;
+    console.log(currentNode);
+    return currentNode;
+  }
 }
 
 const DLL = new DoulyLinkedList();
@@ -78,6 +104,5 @@ DLL.push('Jone');
 DLL.push('Doe');
 DLL.push('Jane');
 DLL.push('Jake');
-DLL.unshift('walid');
-DLL.unshift('Mohmed');
-console.log(DLL);
+DLL.get(-2);
+// console.log(DLL);
