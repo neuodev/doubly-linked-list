@@ -104,6 +104,26 @@ class DoublyLinkedList {
     }
     return false;
   }
+  insert(idx, val) {
+    const node = new Node(val);
+    if (idx > this.length || idx < 0) return;
+    if (idx === this.length) return this.push(val);
+    if (idx === 0) return this.unshift(val);
+    let currentNode = this.head.next;
+    let prevNode = this.head;
+    let counter = 1;
+    while (counter < idx) {
+      currentNode = currentNode.next;
+      prevNode = prevNode.next;
+      counter++;
+    }
+    node.next = currentNode;
+    currentNode.prev = node;
+    prevNode.next = node;
+    node.prev = prevNode;
+    this.length++;
+    return node;
+  }
 }
 
 const DLL = new DoublyLinkedList();
@@ -111,5 +131,5 @@ DLL.push('Jone');
 DLL.push('Doe');
 DLL.push('Jane');
 DLL.push('Jake');
-DLL.set(21, 'Doee');
+DLL.insert(3, 'lorem');
 console.log(DLL);
