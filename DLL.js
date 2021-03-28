@@ -58,16 +58,26 @@ class DoulyLinkedList {
     console.log(node);
     return node;
   }
+  unshift(val) {
+    const node = new Node(val);
+    if (!this.head) {
+      this.head = this.tail = node;
+    } else {
+      node.next = this.head;
+      this.head = this.head.prev;
+      this.head = node;
+    }
+
+    this.length++;
+    return node;
+  }
 }
 
 const DLL = new DoulyLinkedList();
-DLL.push(0);
-DLL.push(1);
-DLL.push(2);
-DLL.push(3);
-DLL.shift();
-DLL.shift();
-DLL.shift();
-DLL.shift();
-
-// console.log(DLL);
+DLL.push('Jone');
+DLL.push('Doe');
+DLL.push('Jane');
+DLL.push('Jake');
+DLL.unshift('walid')
+DLL.unshift('Mohmed')
+console.log(DLL);
