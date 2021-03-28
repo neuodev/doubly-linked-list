@@ -92,10 +92,17 @@ class DoublyLinkedList {
         counter--;
       }
     }
-    currentNode.next = null;
-    currentNode.prev = null;
     console.log(currentNode);
     return currentNode;
+  }
+
+  set(idx, val) {
+    const node = this.get(idx);
+    if (node) {
+      node.val = val;
+      return true;
+    }
+    return false;
   }
 }
 
@@ -104,5 +111,5 @@ DLL.push('Jone');
 DLL.push('Doe');
 DLL.push('Jane');
 DLL.push('Jake');
-DLL.get(-2);
+DLL.set(21, 'Doee');
 console.log(DLL);
