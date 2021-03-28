@@ -64,7 +64,7 @@ class DoulyLinkedList {
       this.head = this.tail = node;
     } else {
       node.next = this.head;
-      this.head = this.head.prev;
+      this.head.prev = node;
       this.head = node;
     }
 
@@ -78,6 +78,6 @@ DLL.push('Jone');
 DLL.push('Doe');
 DLL.push('Jane');
 DLL.push('Jake');
-DLL.unshift('walid')
-DLL.unshift('Mohmed')
+DLL.unshift('walid');
+DLL.unshift('Mohmed');
 console.log(DLL);
