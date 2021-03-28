@@ -124,6 +124,23 @@ class DoublyLinkedList {
     this.length++;
     return node;
   }
+
+  remove(idx) {
+    if (idx >= this.length || idx < 0) return;
+    if (idx === this.length - 1) return this.pop();
+    if (idx === 0) return this.shift();
+    let current = this.head.next;
+    let prev = this.head;
+    let counter = 1;
+    while (counter < idx) {
+      prev = current;
+      current = current.next;
+      counter++;
+      console.log(current.val);
+    }
+    prev.next = current.next;
+    current.next.prev = current.prev;
+  }
 }
 
 const DLL = new DoublyLinkedList();
@@ -131,5 +148,7 @@ DLL.push('Jone');
 DLL.push('Doe');
 DLL.push('Jane');
 DLL.push('Jake');
-DLL.insert(3, 'lorem');
-console.log(DLL);
+DLL.push('ahmed');
+DLL.push('hend');
+DLL.remove(3);
+// console.log(DLL);
